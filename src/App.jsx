@@ -1,12 +1,24 @@
-import MainComponent from "@/components/HomePage"
-
+import { ThreeItemGrid } from "@/components/grid/three-items"
+import { Carousel } from "./components/carousel"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   
   return (
-  <div className="flex flex-col justify-center items-center w-full min-h-screen md:px-24 py-2">
-     <MainComponent/>
-  </div>
+  
+  <Router>
+  <Routes>
+    <Route path="/" element={
+    <>
+    <ThreeItemGrid/>
+    <Carousel/>
+    </>
+  }>
+      <Route index element={<Home />} />
+      <Route path="products/:id" element={<ProductDetail />} />
+    </Route>
+  </Routes>
+</Router>
   )
 }
 

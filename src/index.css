@@ -7,7 +7,7 @@
 }
 @tailwind utilities;
 :root {
-    --bg-color: black;
+    --bg-color: #171717;
     --text-color: white;
   }
   
@@ -15,10 +15,22 @@
     background-color: var(--bg-color);
     color: var(--text-color);
   }
-  .grid-sphere {
-    background-image: linear-gradient(#000, #000),
-      linear-gradient(to right, #fff 1px, transparent 1px),
-      linear-gradient(to bottom, #fff 1px, transparent 1px);
-    background-size: 100% 100%, 5% 5%, 5% 5%;
-    background-position: 0 0, 0 0, 0 0;
+
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
   }
+  
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    img[loading='lazy'] {
+      clip-path: inset(0.6px);
+    }
+  }
+  
+  a,
+  input,
+  button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
+  }
+  
